@@ -80,6 +80,22 @@ t_stack	*get_under_key(t_stack *stack, int i)
 	return (NULL);
 }
 
+void	push_to_a(t_push *ps, t_stack *max)
+{
+	int	med;
+
+	med = stack_size(ps->stack_b) / 2;
+	while (ps->stack_b->data != max->data)
+	{
+		if (med >= max->id)
+			stack_rotate(ps, "rb");
+		else
+			stack_rotate(ps, "rrb");
+	}
+	if (ps->stack_b->data == max->data)
+		push(ps, "pa");
+}
+
 void	push_to_b(t_push *ps, t_stack *smaller)
 {
 	int	med;
@@ -114,6 +130,7 @@ void	push_min_to_b(t_push *ps)
 		}
 		i++;
 	}
+
 }
 
 void	get_key(t_push *ps)
@@ -142,16 +159,33 @@ void	get_key(t_push *ps)
 }
 
 void	case_of_100(t_push *ps)
-{	
+{
+	t_stack	*min;
+	t_stack	*max;
+
 	sort_arr(ps);
 	get_key(ps);
 	push_min_to_b(ps);
+	while (ps->stack_a)
+	{
+		min = get_min(ps->stack_a);
+		push_to_b(ps, min);
+	}
+	while (ps->stack_b)
+	{
+		max = get_max(ps->stack_b);
+		push_to_a(ps, max);
+		if (!ps->stack_b)
+			break;
+	}
+
 }
 
 void	stack_sort(t_push *ps)
 {
+		exit (0);
 	if (ps->size <= 10)
 		case_of_10(ps);
-	else if (ps->size > 10 && ps->size <= 100)
+	else if (ps->size > 10)
 		case_of_100(ps);
 }

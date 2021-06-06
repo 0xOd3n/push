@@ -92,7 +92,9 @@ void	check_param(char **av, t_push *ps)
 	while (av[i])
 	{
 		j = 0;
-		spliter = ft_split(av[i], ' ');
+				//exit (0);
+		if (av[i])
+			spliter = ft_split(av[i], ' ');
 		while (spliter[j])
 		{
 			if (isnotnum(spliter[j]))

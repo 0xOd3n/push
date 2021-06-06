@@ -78,7 +78,10 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		msg("invalid param", &ps);
 	fill_stack(&ps, &av[1]);
+	printf("string : |%s|\n", av[1]);
+	ft_split (av[1], ' ');
 	check_param(av, &ps);
+	//exit (0);
 	ps.size = stack_size(ps.stack_a);
 	// sort_arr(&ps);
 	// printf_arr(&ps);
