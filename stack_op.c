@@ -12,6 +12,26 @@
 
 #include "push_swap.h"
 
+void	push_min_to_b(t_push *ps)
+{
+	t_stack	*smaller;
+	int		i;
+
+	i = 0;
+	while (i < ps->div)
+	{
+		while (1)
+		{
+			smaller = get_under_key(ps->stack_a, ps->key[i]);
+			if (!smaller)
+				break ;
+			else
+				push_to_b(ps, smaller);
+		}
+		i++;
+	}
+}
+
 void	stack_swap(t_push *ps, char *s)
 {
 	if (!ft_strcmp(s, "sa") && ps->stack_a && ps->stack_a->next)
@@ -29,7 +49,7 @@ void	stack_swap(t_push *ps, char *s)
 	{
 		ft_swap(&ps->stack_a->data, &ps->stack_a->next->data);
 		ft_swap(&ps->stack_b->data, &ps->stack_b->next->data);
-		write(1, "ss\n", 3);	
+		write(1, "ss\n", 3);
 	}
 	ps->counter++;
 }
@@ -59,7 +79,7 @@ void	push(t_push *ps, char *s)
 		ps->stack_a->next = tmp;
 		write(1, "pa\n", 3);
 	}
-	init_satck_id(ps);
+	init_stack_id(ps);
 	ps->counter++;
 }
 
@@ -108,6 +128,6 @@ void	stack_rotate(t_push *ps, char *s)
 	}
 	ft_putstr_fd(s, 1);
 	write(1, "\n", 1);
-	init_satck_id(ps);
+	init_stack_id(ps);
 	ps->counter++;
 }

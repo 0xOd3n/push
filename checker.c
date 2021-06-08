@@ -45,7 +45,7 @@ int	is_duplicate(t_stack *stack)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
-	int	c;
+	int		c;
 
 	tmp1 = stack;
 	while (tmp1)
@@ -87,18 +87,17 @@ void	check_param(char **av, t_push *ps)
 	int		i;
 	int		j;
 	char	**spliter;
-	
+
 	i = 1;
 	while (av[i])
 	{
 		j = 0;
-				//exit (0);
 		if (av[i])
 			spliter = ft_split(av[i], ' ');
 		while (spliter[j])
 		{
 			if (isnotnum(spliter[j]))
-			 	msg("Error!\nparameter not number", ps);
+				msg("Error!\nparameter not number", ps);
 			if (int_range(spliter[j]))
 				msg("Error!\nint overflow", ps);
 			if (is_duplicate(ps->stack_a))

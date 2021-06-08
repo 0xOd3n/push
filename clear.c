@@ -1,4 +1,6 @@
 
+
+
 #include "push_swap.h"
 
 void    ft_clear(t_push *ps)
@@ -9,7 +11,7 @@ void    ft_clear(t_push *ps)
     {
         tmp = ps->stack_a;
         ps->stack_a = ps->stack_a->next;
-        free(tmp);
+        free (tmp);
     }
     while (ps->stack_b)
     {
@@ -17,6 +19,8 @@ void    ft_clear(t_push *ps)
         ps->stack_b = ps->stack_b->next;
         free(tmp);
     }
+    ps->stack_a = NULL;
+    ps->stack_b = NULL;
 }
 
 void	free_spliter(char **spliter)
@@ -26,8 +30,9 @@ void	free_spliter(char **spliter)
 	i = 0;
 	while (spliter[i])
 	{
-		free(spliter[i]);
-		i++;
+        free(spliter[i]);
+        i++;
 	}
 	free(spliter);
+    spliter = NULL;
 }

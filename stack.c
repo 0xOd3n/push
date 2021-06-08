@@ -56,10 +56,10 @@ void	fill_stack(t_push *ps, char **av)
 		tmp = tmp->next;
 	}
 	tmp->next = NULL;
-	init_satck_id(ps);
+	init_stack_id(ps);
 }
 
-void	init_satck_id(t_push *ps)
+void	init_stack_id(t_push *ps)
 {
 	int		id;
 	t_stack	*p;

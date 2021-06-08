@@ -12,28 +12,6 @@
 
 #include "push_swap.h"
 
-void	add_stack(int data, t_push *ps)
-{
-	t_stack *new;
-	t_stack *tmp;
-	
-	tmp = NULL;
-	if(!(new = (t_stack *)malloc(sizeof(t_stack))))
-		msg("Error!\nmalloc", ps);
-	new->data = data;
-	new->next = NULL;
-	if (!ps->stack_a)
-		ps->stack_a = new;
-	else
-	{
-		tmp = ps->stack_a;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-	}
-	return;
-}
-
 void	init(t_push *ps, int ac)
 {
 	ps->size = ac - 1;
@@ -43,11 +21,11 @@ void	init(t_push *ps, int ac)
 
 void	print_stack(t_push *ps)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	printf("\n\nSTACK A\n\n");
 	tmp = ps->stack_a;
-			while (tmp)
+	while (tmp)
 	{
 		printf("|%d|\t|id : %d|\n", tmp->data, tmp->id);
 		tmp = tmp->next;
@@ -66,20 +44,19 @@ void	print_stack(t_push *ps)
 void	push_n(t_push *ps, char *s, int n)
 {
 	while (n--)
-	push(ps, s);
+		push(ps, s);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_push	ps;
 
 	ps = (t_push){0};
-
 	if (ac == 1)
 		msg("invalid param", &ps);
 	fill_stack(&ps, &av[1]);
 	printf("string : |%s|\n", av[1]);
-	ft_split (av[1], ' ');
+	//ft_split (av[1], ' ');
 	check_param(av, &ps);
 	//exit (0);
 	ps.size = stack_size(ps.stack_a);
@@ -105,4 +82,5 @@ int		main(int ac, char **av)
 		
 	// }
 	// return(0);
+	ft_clear(&ps);
 }
