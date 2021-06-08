@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:41:02 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/04 17:39:48 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/08 19:00:58 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	get_key(t_push *ps)
 	int	i;
 
 	if (ps->size > 10 && ps->size <= 100)
-		key = (ps->size - 1) / 6;
+		key = (ps->size - 1) / 5;
 	else
 		key = (ps->size - 1) / 12;
 	i = 0;
@@ -57,12 +57,9 @@ void	get_key(t_push *ps)
 	while (i < ps->div)
 	{
 		ps->key[i] = ps->arr[med];
-		printf("med id|%d|\t", ps->key[i]);
-		printf("\nmed = %d\n", ps->div);
 		med = med + key;
 		i++;
 	}
-	printf("\ni_key = %d\n", key);
 }
 
 void	push_to_a(t_push *ps, t_stack *max)

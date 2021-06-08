@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:01:46 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/05 21:32:16 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/08 22:10:43 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,32 +55,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		msg("invalid param", &ps);
 	fill_stack(&ps, &av[1]);
-	printf("string : |%s|\n", av[1]);
-	//ft_split (av[1], ' ');
 	check_param(av, &ps);
-	//exit (0);
 	ps.size = stack_size(ps.stack_a);
-	// sort_arr(&ps);
-	// printf_arr(&ps);
-
-	//  push_n(&ps, "pb", 4);
-	  print_stack(&ps);
-	// // stack_swap(&ps, "ss");
-	// push_n(&ps, "pa", 100);
-	// print_stack(&ps);
-	// if (ps.stack_b)
-	// 	printf("there is something in b");
-	//get_key(&ps);
 	stack_sort(&ps);
-	print_stack(&ps);
-	printf("\nmove num : %d\n", ps.counter);
-	//printf("\nstack size : %d\n", (ps.size) / 4 * 3);
-	// printf("\n size stack")
-	// write(1, "done\n", 5);
-	// while (1)
-	// {
-		
-	// }
-	// return(0);
-	ft_clear(&ps);
 }

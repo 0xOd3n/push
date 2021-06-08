@@ -6,7 +6,7 @@
 #    By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 18:46:31 by abbelhac          #+#    #+#              #
-#    Updated: 2021/06/04 14:47:50 by abbelhac         ###   ########.fr        #
+#    Updated: 2021/06/08 18:12:42 by abbelhac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 HEADER = push_swap.h
 SRCS = push_swap.c \
 		msg.c \
-		checker.c \
+		param_checker.c \
 		stack.c \
 		stack_op.c \
 		stack_sort.c \
