@@ -6,7 +6,7 @@
 #    By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 18:46:31 by abbelhac          #+#    #+#              #
-#    Updated: 2021/06/08 18:12:42 by abbelhac         ###   ########.fr        #
+#    Updated: 2021/06/09 20:21:24 by abbelhac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,15 @@ NAME = push_swap.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 HEADER = push_swap.h
-SRCS = push_swap.c \
-		msg.c \
+SRCS =	msg.c \
 		param_checker.c \
 		stack.c \
 		stack_op.c \
 		stack_sort.c \
 		clear.c \
 		quick_sort.c \
-		utils.c
+		utils.c \
+		tools.c
 
 LIBFT = libft/libft.a
 OBJ = $(SRCS:.c=.o)
@@ -40,7 +40,7 @@ $(LIBFT) :
 	gcc -c $(FLAGS) $<  $(HEADER)
 
 run : $(NAME)
-	gcc $(FLAGS) $(NAME) -o push
+	gcc $(FLAGS) $(NAME) push_swap.c -o push
 
 cleanlibft :
 	make clean -C libft/

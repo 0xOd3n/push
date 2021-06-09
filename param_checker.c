@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   param_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:51:42 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/04 14:39:06 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:56:58 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ void	split_check(t_push *ps, char **spliter)
 		if (is_duplicate(ps->stack_a))
 			msg("Error\n", ps);
 		if (is_sorted(ps->stack_a))
-			msg("sorted param\n", ps);
+		{
+			ft_clear(ps);
+			exit(1);
+		}
 		j++;
 		if (!spliter[j])
 			free_spliter(spliter);

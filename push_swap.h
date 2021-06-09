@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:07:26 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/08 22:12:05 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/09 20:20:59 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,7 @@ t_stack		*get_under_key(t_stack *stack, int i);
 void		push_min_to_b(t_push *ps);
 void		push_to_b(t_push *ps, t_stack *smaller);
 void		push_to_a(t_push *ps, t_stack *max);
+void		check_param(char **av, t_push *ps);
+void		print_stack(t_push *ps);
+void		push_n(t_push *ps, char *s, int n);
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 17:01:46 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/09 20:21:07 by abbelhac         ###   ########.fr       */
+/*   Created: 2021/06/09 20:12:23 by abbelhac          #+#    #+#             */
+/*   Updated: 2021/06/09 20:22:39 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,5 @@ int	main(int ac, char **av)
 		msg("Error\n", &ps);
 	fill_stack(&ps, &av[1]);
 	check_param(av, &ps);
-	ps.size = stack_size(ps.stack_a);
-	stack_sort(&ps);
-	ft_clear(&ps);
-	//printf("%d\n", ps.counter);
+	print_stack(&ps);
 }
