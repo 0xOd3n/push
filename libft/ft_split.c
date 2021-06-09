@@ -48,17 +48,22 @@ static int	wordlen(char const *s, char c)
 	return (len);
 }
 
-static	void	free_arr(char **arr, int rows)
+static	int	free_arr(char **arr, int rows)
 {
 	int	i;
 
 	i = 0;
-	while (i < rows)
+	if (!arr[rows])
 	{
-		free(arr[i]);
-		i++;
+		while (i < rows)
+		{
+			free(arr[i]);
+			i++;
+		}
+		free(arr);
+		return (1);
 	}
-	free(arr);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -78,11 +83,8 @@ char	**ft_split(char const *s, char c)
 		if (s[i])
 		{
 			arr[rows] = ft_substr(s, i, wordlen(&s[i], c));
-			if (!arr[rows])
-			{
-				free_arr(arr, rows);
+			if (free_arr(arr, rows))
 				return (0);
-			}
 			rows++;
 		}
 		i += next_c(&s[i], c);

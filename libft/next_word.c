@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int		next_word(char const *s, char c)
+int	next_word(char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] == c)

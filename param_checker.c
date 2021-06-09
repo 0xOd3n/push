@@ -82,32 +82,23 @@ int	int_range(char *s)
 	return (0);
 }
 
-void	check_param(char **av, t_push *ps)
+void	split_check(t_push *ps, char **spliter)
 {
-	int		i;
-	int		j;
-	char	**spliter;
+	int	j;
 
-	i = 1;
-	while (av[i])
+	j = 0;
+	while (spliter[j])
 	{
-		j = 0;
-		if (av[i])
-			spliter = ft_split(av[i], ' ');
-		while (spliter[j])
-		{
-			if (isnotnum(spliter[j]))
-				msg("Error!\nparameter not number", ps);
-			if (int_range(spliter[j]))
-				msg("Error!\nint overflow", ps);
-			if (is_duplicate(ps->stack_a))
-				msg("Error!\nduplicate number\n", ps);
-			if (is_sorted(ps->stack_a))
-				msg("sorted param\n", ps);
-			j++;
-			if (!spliter[j])
-				free_spliter(spliter);
-		}
-		i++;
+		if (isnotnum(spliter[j]))
+			msg("Error\n", ps);
+		if (int_range(spliter[j]))
+			msg("Error\n", ps);
+		if (is_duplicate(ps->stack_a))
+			msg("Error\n", ps);
+		if (is_sorted(ps->stack_a))
+			msg("sorted param\n", ps);
+		j++;
+		if (!spliter[j])
+			free_spliter(spliter);
 	}
 }

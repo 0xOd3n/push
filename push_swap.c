@@ -12,11 +12,18 @@
 
 #include "push_swap.h"
 
-void	init(t_push *ps, int ac)
+void	check_param(char **av, t_push *ps)
 {
-	ps->size = ac - 1;
-	ps->stack_a = NULL;
-	ps->stack_b = NULL;
+	int		i;
+	char	**spliter;
+
+	i = 1;
+	while (av[i])
+	{
+		spliter = ft_split(av[i], ' ');
+		split_check(ps, spliter);
+		i++;
+	}
 }
 
 void	print_stack(t_push *ps)
@@ -53,9 +60,10 @@ int	main(int ac, char **av)
 
 	ps = (t_push){0};
 	if (ac == 1)
-		msg("invalid param", &ps);
+		msg("Error\n", &ps);
 	fill_stack(&ps, &av[1]);
 	check_param(av, &ps);
 	ps.size = stack_size(ps.stack_a);
 	stack_sort(&ps);
+	ft_clear(&ps);
 }

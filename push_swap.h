@@ -35,6 +35,7 @@ typedef struct s_push
 
 void		msg(char *s, t_push *ps);
 int			isnotnum(char *s);
+void		split_check(t_push *ps, char **spliter);
 void		check_param(char **av, t_push *ps);
 void		stack_swap(t_push *ps, char *s);
 void		push(t_push *ps, char *s);
