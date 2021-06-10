@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 # include <stdio.h>
+# include <fcntl.h>
+# include <sys/stat.h>
+# define BUFFER_SIZE 1
 
 typedef struct s_stack
 {
@@ -63,4 +66,8 @@ void		push_to_a(t_push *ps, t_stack *max);
 void		check_param(char **av, t_push *ps);
 void		print_stack(t_push *ps);
 void		push_n(t_push *ps, char *s, int n);
+char		*substr(char *s, unsigned int start, size_t len);
+char		*join(char *s1, char const *s2);
+int			get_next_line(int fd, char **line);
+
 #endif

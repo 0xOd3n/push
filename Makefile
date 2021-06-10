@@ -22,7 +22,9 @@ SRCS =	msg.c \
 		clear.c \
 		quick_sort.c \
 		utils.c \
-		tools.c
+		tools.c \
+		get_next_line.c \
+		get_next_line_utils.c
 
 LIBFT = libft/libft.a
 OBJ = $(SRCS:.c=.o)
@@ -40,7 +42,10 @@ $(LIBFT) :
 	gcc -c $(FLAGS) $<  $(HEADER)
 
 run : $(NAME)
-	gcc $(FLAGS) $(NAME) push_swap.c -o push
+	gcc $(FLAGS) push_swap.c $(NAME) -o push
+
+checker : $(NAME)
+	gcc $(FLAGS) checker.c $(NAME) -o checker
 
 cleanlibft :
 	make clean -C libft/
@@ -54,4 +59,4 @@ fcleanlibft :
 fclean : fcleanlibft clean
 	rm $(NAME)
 
-re : fclean all run
+re : fclean all

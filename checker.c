@@ -12,6 +12,25 @@
 
 #include "push_swap.h"
 
+void	push_read(t_push *ps)
+{
+	char	*line;
+	int		ret;
+	int		fd;
+
+	ps->arr = NULL;
+	line = NULL;
+	fd = open("/home/abb/push_swap/test", O_RDWR);
+	ret = get_next_line(fd, &line);
+	while (ret)
+	{
+		printf("||%s||\n", line);
+		free(line);
+		line = NULL;
+		ret = get_next_line(1, &line);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_push	ps;
@@ -21,5 +40,6 @@ int	main(int ac, char **av)
 		msg("Error\n", &ps);
 	fill_stack(&ps, &av[1]);
 	check_param(av, &ps);
-	print_stack(&ps);
+	//print_stack(&ps);
+	push_read(&ps);
 }
