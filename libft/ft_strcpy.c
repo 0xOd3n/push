@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 21:38:02 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/05/28 21:46:04 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:59:29 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcpy(char *dst, const char *src)
 	unsigned int	i;
 
 	i = 0;
-	while (src[i])
+	while (src && src[i])
 	{
 		dst[i] = src[i];
 		i++;

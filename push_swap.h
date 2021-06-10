@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:07:26 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/09 20:20:59 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:07:16 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void		msg(char *s, t_push *ps);
 int			isnotnum(char *s);
 void		split_check(t_push *ps, char **spliter);
 void		check_param(char **av, t_push *ps);
-void		stack_swap(t_push *ps, char *s);
-void		push(t_push *ps, char *s);
+void		stack_swap(t_push *ps, char *s, int bool);
+void		push(t_push *ps, char *s, int bool);
 void		rotate(t_stack **stack, int r);
-void		stack_rotate(t_push *ps, char *s);
+void		stack_rotate(t_push *ps, char *s, int bool);
 void		fill_stack(t_push *ps, char **av);
 t_stack		*last_stack(t_stack *node, int r);
 int			stack_size(t_stack *stack);

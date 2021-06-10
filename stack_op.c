@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 21:25:25 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/05/31 18:28:07 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:07:59 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,27 @@ void	push_min_to_b(t_push *ps)
 	}
 }
 
-void	stack_swap(t_push *ps, char *s)
+void	stack_swap(t_push *ps, char *s, int bool)
 {
 	if (!ft_strcmp(s, "sa") && ps->stack_a && ps->stack_a->next)
-	{
 		ft_swap(&ps->stack_a->data, &ps->stack_a->next->data);
-		write(1, "sa\n", 3);
-	}
 	else if (!ft_strcmp(s, "sb") && ps->stack_b && ps->stack_b->next)
-	{
 		ft_swap(&ps->stack_b->data, &ps->stack_b->next->data);
-		write(1, "sb\n", 3);
-	}
 	else if (!ft_strcmp(s, "ss") && ps->stack_a && ps->stack_b
 		&& ps->stack_a->next && ps->stack_b->next)
 	{
 		ft_swap(&ps->stack_a->data, &ps->stack_a->next->data);
 		ft_swap(&ps->stack_b->data, &ps->stack_b->next->data);
-		write(1, "ss\n", 3);
+	}
+	if (bool)
+	{
+		ft_putstr_fd(s, 1);
+		write(1, "\n", 1);
 	}
 	ps->counter++;
 }
 
-void	push(t_push *ps, char *s)
+void	push(t_push *ps, char *s, int bool)
 {
 	t_stack		*tmp;
 
@@ -67,7 +65,6 @@ void	push(t_push *ps, char *s)
 			ps->stack_b->next = NULL;
 		else
 			ps->stack_b->next = tmp;
-		write(1, "pb\n", 3);
 	}
 	else if (!ft_strcmp(s, "pa") && ps->stack_b)
 	{
@@ -77,7 +74,11 @@ void	push(t_push *ps, char *s)
 		if (!tmp)
 			ps->stack_a->next = NULL;
 		ps->stack_a->next = tmp;
-		write(1, "pa\n", 3);
+	}
+	if (bool)
+	{
+		ft_putstr_fd(s, 1);
+		write(1, "\n", 1);
 	}
 	init_stack_id(ps);
 	ps->counter++;
@@ -106,7 +107,7 @@ void	rotate(t_stack **stack, int r)
 	}
 }
 
-void	stack_rotate(t_push *ps, char *s)
+void	stack_rotate(t_push *ps, char *s, int bool)
 {
 	if (!ft_strcmp(s, "ra"))
 		rotate(&ps->stack_a, 0);
@@ -126,8 +127,11 @@ void	stack_rotate(t_push *ps, char *s)
 		rotate(&ps->stack_a, 1);
 		rotate(&ps->stack_b, 1);
 	}
-	ft_putstr_fd(s, 1);
-	write(1, "\n", 1);
+	if (bool)
+	{
+		ft_putstr_fd(s, 1);
+		write(1, "\n", 1);
+	}
 	init_stack_id(ps);
 	ps->counter++;
 }

@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:41:02 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/09 20:03:32 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:11:26 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ void	push_to_a(t_push *ps, t_stack *max)
 	while (ps->stack_b->data != max->data)
 	{
 		if (med >= max->id)
-			stack_rotate(ps, "rb");
+			stack_rotate(ps, "rb", 1);
 		else
-			stack_rotate(ps, "rrb");
+			stack_rotate(ps, "rrb", 1);
 	}
 	if (ps->stack_b->data == max->data)
-		push(ps, "pa");
+		push(ps, "pa", 1);
 }
 
 void	push_to_b(t_push *ps, t_stack *smaller)
@@ -86,10 +86,10 @@ void	push_to_b(t_push *ps, t_stack *smaller)
 	while (ps->stack_a->data != smaller->data)
 	{
 		if (med >= smaller->id)
-			stack_rotate(ps, "ra");
+			stack_rotate(ps, "ra", 1);
 		else
-			stack_rotate(ps, "rra");
+			stack_rotate(ps, "rra", 1);
 	}
 	if (ps->stack_a->data == smaller->data)
-		push(ps, "pb");
+		push(ps, "pb", 1);
 }

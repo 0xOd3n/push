@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:19:40 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/09 20:21:15 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:12:01 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	print_stack(t_push *ps)
 void	push_n(t_push *ps, char *s, int n)
 {
 	while (n--)
-		push(ps, s);
+		push(ps, s, 1);
 }

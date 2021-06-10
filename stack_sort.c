@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:09:07 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/05 21:54:56 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:10:31 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ void	case_of_3(t_push *ps)
 	if (ps->stack_a->next->next)
 		third = ps->stack_a->next->next->data;
 	if ((ps->size == 2 && first > second) || (first > second && first < third))
-		stack_swap(ps, "sa");
+		stack_swap(ps, "sa", 1);
 	else if (second < third && first > third)
-		stack_rotate(ps, "ra");
+		stack_rotate(ps, "ra", 1);
 	else if (first < second && first > third)
-		stack_rotate(ps, "rra");
+		stack_rotate(ps, "rra", 1);
 	else if ((first > second) && (second > third))
 	{
-		stack_swap(ps, "sa");
-		stack_rotate(ps, "rra");
+		stack_swap(ps, "sa", 1);
+		stack_rotate(ps, "rra", 1);
 	}
 	else if (first < third && second > third)
 	{
-		stack_swap(ps, "sa");
-		stack_rotate(ps, "ra");
+		stack_swap(ps, "sa", 1);
+		stack_rotate(ps, "ra", 1);
 	}
 }
 
@@ -56,16 +56,16 @@ void	case_of_10(t_push *ps)
 			while (ps->stack_a->data != min->data)
 			{
 				if (med >= min->id)
-					stack_rotate(ps, "ra");
+					stack_rotate(ps, "ra", 1);
 				else
-					stack_rotate(ps, "rra");
+					stack_rotate(ps, "rra", 1);
 				min = get_min(ps->stack_a);
 			}
 			if (!(is_sorted(ps->stack_a)) && ps->stack_a->data == min->data)
-				push(ps, "pb");
+				push(ps, "pb", 1);
 		}
 		while (is_sorted(ps->stack_a) && ps->stack_b)
-			push(ps, "pa");
+			push(ps, "pa", 1);
 	}
 }
 
