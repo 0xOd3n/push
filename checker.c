@@ -31,11 +31,9 @@ void	push_read(t_push *ps)
 {
 	char	*line;
 	int		ret;
-	int		fd;
 
 	ps->arr = NULL;
 	line = NULL;
-	fd = open("/Users/abbelhac/ppu/test", O_RDWR);
 	ret = get_next_line(0, &line);
 	while (ret)
 	{
@@ -44,6 +42,8 @@ void	push_read(t_push *ps)
 		line = NULL;
 		ret = get_next_line(0, &line);
 	}
+	if (line)
+		free(line);
 }
 
 int	main(int ac, char **av)
@@ -56,9 +56,9 @@ int	main(int ac, char **av)
 	fill_stack(&ps, &av[1]);
 	check_param(av, &ps);
 	push_read(&ps);
-	//print_stack(&ps);
 	if (is_sorted(ps.stack_a))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
+	ft_clear(&ps);
 }

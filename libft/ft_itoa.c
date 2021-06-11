@@ -49,12 +49,13 @@ static char	*to_ascii(char *str, long nb, int len)
 		}
 	}
 	else
+	{
 		while (len > i)
 		{
-			str[len - (i + 1)] = (nb % 10) + '0';
 			nb /= 10;
 			i++;
 		}
+	}
 	str[len] = '\0';
 	return (str);
 }
