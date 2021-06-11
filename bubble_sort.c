@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:19:08 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/04 17:39:13 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 19:28:24 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	printf_arr(t_push *ps)
 	i = 0;
 	while (i < ps->size)
 	{
-		printf("|%d|\t", ps->arr[i]);
+		printf("|%d|\n", ps->arr[i]);
 		i++;
 	}
 	write(1, "\n", 1);
@@ -43,40 +43,32 @@ void	fill_arr(t_push *ps)
 	}
 }
 
-int	partition(t_push *ps, int start, int end)
+void	bubble_sort(t_push *ps)
 {
-	int	pivot;
-	int	val;
+	int	i;
+	int	*tmp;
+	int	exec;
 
-	pivot = start;
-	val = ps->arr[pivot];
-	while (start < end)
+	tmp = ps->arr;
+	exec = 1;
+	while (exec)
 	{
-		while (ps->arr[start] <= val)
-			start++;
-		while (ps->arr[end] > val)
-			end--;
-		if (start < end)
-			ft_swap(&ps->arr[start], &ps->arr[end]);
-	}
-	ft_swap(&ps->arr[pivot], &ps->arr[end]);
-	return (end);
-}
-
-void	quick_sort(t_push *ps, int start, int end)
-{
-	int	splitpoint;
-
-	if (start < end)
-	{
-		splitpoint = partition(ps, start, end);
-		quick_sort(ps, start, splitpoint - 1);
-		quick_sort(ps, splitpoint + 1, end);
+		exec = 0;
+		i = 0;
+		while (i < ps->size)
+		{
+			if (tmp[i] > tmp[i + 1])
+			{
+				exec = 1;
+				ft_swap(&tmp[i], &tmp[i + 1]);
+			}
+			i++;
+		}
 	}
 }
 
 void	sort_arr(t_push *ps)
 {
 	fill_arr(ps);
-	quick_sort(ps, 0, ps->size - 1);
+	bubble_sort(ps);
 }

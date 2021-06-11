@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 21:25:25 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/10 20:07:59 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:53:29 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,13 @@ void	push(t_push *ps, char *s, int bool)
 		tmp = ps->stack_b;
 		ps->stack_b = ps->stack_a;
 		ps->stack_a = ps->stack_a->next;
-		if (!tmp)
-			ps->stack_b->next = NULL;
-		else
-			ps->stack_b->next = tmp;
+		ps->stack_b->next = tmp;
 	}
 	else if (!ft_strcmp(s, "pa") && ps->stack_b)
 	{
 		tmp = ps->stack_a;
 		ps->stack_a = ps->stack_b;
 		ps->stack_b = ps->stack_b->next;
-		if (!tmp)
-			ps->stack_a->next = NULL;
 		ps->stack_a->next = tmp;
 	}
 	if (bool)

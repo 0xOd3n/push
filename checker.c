@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:12:23 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/10 21:32:34 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:27:47 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	handler(t_push *ps, char *op)
 		|| (!ft_strcmp(op, "rr")))
 		stack_rotate(ps, op, 0);
 	else if ((!ft_strcmp(op, "rra")) || (!ft_strcmp(op, "rrb"))
-		|| ft_strcmp(op, "rrr"))
+		|| !ft_strcmp(op, "rrr"))
 		stack_rotate(ps, op, 0);
+	else
+		msg("Error\n", ps);
 }
 
 void	push_read(t_push *ps)
