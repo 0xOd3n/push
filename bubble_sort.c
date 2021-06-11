@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:19:08 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/11 19:28:24 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 19:57:32 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	printf_arr(t_push *ps)
-{
-	int	i;
-
-	i = 0;
-	while (i < ps->size)
-	{
-		printf("|%d|\n", ps->arr[i]);
-		i++;
-	}
-	write(1, "\n", 1);
-}
 
 void	fill_arr(t_push *ps)
 {

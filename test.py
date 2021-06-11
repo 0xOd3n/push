@@ -20,8 +20,8 @@ n = 50
 OK = 0
 while (i < n):
     ran = gen(-2147483648, 2147483647, 500)
-    valid = os.popen(f"./push {ran} | ./checker {ran} | tail -1").read()[:-1]
-    num = os.popen(f"./push {ran} | wc -l").read()[:-1]
+    valid = os.popen(f"./push_swap {ran} | ./checker {ran} | tail -1").read()[:-1]
+    num = os.popen(f"./push_swap {ran} | wc -l").read()[:-1]
     tem = int(num)
 
     if valid == "OK":

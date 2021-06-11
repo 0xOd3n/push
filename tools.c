@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:19:40 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/10 20:12:01 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 20:01:12 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,4 @@ void	check_param(char **av, t_push *ps)
 		split_check(ps, spliter);
 		i++;
 	}
-}
-
-void	print_stack(t_push *ps)
-{
-	t_stack	*tmp;
-
-	printf("\n\nSTACK A\n\n");
-	tmp = ps->stack_a;
-	while (tmp)
-	{
-		printf("|%d|\t|id : %d|\n", tmp->data, tmp->id);
-		tmp = tmp->next;
-	}
-	printf("\n\nSTACK B\n\n");
-	tmp = ps->stack_b;
-	while (tmp)
-	{
-		printf("|%d|\t|id : %d|\n", tmp->data, tmp->id);
-		tmp = tmp->next;
-	}
-	printf("\nend of print\n");
-	printf("===================\n");
-}
-
-void	push_n(t_push *ps, char *s, int n)
-{
-	while (n--)
-		push(ps, s, 1);
 }

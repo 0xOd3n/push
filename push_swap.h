@@ -6,14 +6,13 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:07:26 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/10 20:07:16 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/11 20:00:20 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
-# include <stdio.h>
 # include <fcntl.h>
 # include <sys/stat.h>
 # define BUFFER_SIZE 1
@@ -50,9 +49,7 @@ int			stack_size(t_stack *stack);
 void		stack_sort(t_push *ps);
 void		init_stack_id(t_push *ps);
 void		free_spliter(char **spliter);
-void		free_spliter(char **spliter);
 void		ft_clear(t_push *ps);
-void		printf_arr(t_push *ps);
 void		fill_arr(t_push *ps);
 void		sort_arr(t_push *ps);
 int			is_sorted(t_stack *stack);
@@ -64,8 +61,6 @@ void		push_min_to_b(t_push *ps);
 void		push_to_b(t_push *ps, t_stack *smaller);
 void		push_to_a(t_push *ps, t_stack *max);
 void		check_param(char **av, t_push *ps);
-void		print_stack(t_push *ps);
-void		push_n(t_push *ps, char *s, int n);
 char		*substr(char *s, unsigned int start, size_t len);
 char		*join(char *s1, char const *s2);
 int			get_next_line(int fd, char **line);

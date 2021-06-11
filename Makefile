@@ -6,7 +6,7 @@
 #    By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 18:46:31 by abbelhac          #+#    #+#              #
-#    Updated: 2021/06/09 20:21:24 by abbelhac         ###   ########.fr        #
+#    Updated: 2021/06/11 19:52:38 by abbelhac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS =	msg.c \
 		stack_op.c \
 		stack_sort.c \
 		clear.c \
-		quick_sort.c \
+		bubble_sort.c \
 		utils.c \
 		tools.c \
 		get_next_line.c \
@@ -29,7 +29,7 @@ SRCS =	msg.c \
 LIBFT = libft/libft.a
 OBJ = $(SRCS:.c=.o)
 
-all : $(NAME)
+all : $(NAME) run checker
 
 $(NAME) : $(LIBFT) $(OBJ) $(HEADER)
 	cp libft/libft.a $(NAME)
@@ -42,7 +42,7 @@ $(LIBFT) :
 	gcc -c $(FLAGS) $<  $(HEADER)
 
 run : $(NAME)
-	gcc $(FLAGS) push_swap.c $(NAME) -o push
+	gcc $(FLAGS) push_swap.c $(NAME) -o push_swap
 
 checker : $(NAME)
 	gcc $(FLAGS) checker.c $(NAME) -o checker
@@ -58,5 +58,7 @@ fcleanlibft :
 
 fclean : fcleanlibft clean
 	rm $(NAME)
+	rm push_swap
+	rm checker
 
 re : fclean all
