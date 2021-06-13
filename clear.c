@@ -37,7 +37,7 @@ void	free_spliter(char **spliter)
 	int	i;
 
 	i = 0;
-	while (spliter[i])
+	while (spliter && spliter[i])
 	{
 		free(spliter[i]);
 		i++;

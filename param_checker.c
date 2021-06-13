@@ -87,7 +87,7 @@ void	split_check(t_push *ps, char **spliter)
 	int	j;
 
 	j = 0;
-	while (spliter[j])
+	while (spliter && spliter[j])
 	{
 		if (isnotnum(spliter[j]))
 			msg("Error\n", ps);
@@ -101,7 +101,7 @@ void	split_check(t_push *ps, char **spliter)
 			exit(1);
 		}
 		j++;
-		if (!spliter[j])
+		if (!spliter && (!spliter[j]))
 			free_spliter(spliter);
 	}
 }
