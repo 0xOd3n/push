@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 19:51:42 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/09 18:56:58 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 18:00:41 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	isnotnum(char *s)
 	int	i;
 
 	i = 0;
-	if (s[i] == '-')
+	if ((s[i] == '-' || s[i] == '+') && ft_strlen(s) == 1)
+		return (1);
+	else if (s[i] == '-' || s[i] == '+')
 		i++;
 	while (s[i])
 	{
@@ -70,7 +72,7 @@ int	int_range(char *s)
 	int	i;
 
 	i = 0;
-	if (s[i] == '-')
+	if (s[i] == '-' || s[i] == '+')
 		i++;
 	while (s[i] == '0')
 		i++;
@@ -82,26 +84,21 @@ int	int_range(char *s)
 	return (0);
 }
 
-void	split_check(t_push *ps, char **spliter)
+void	split_check(t_push *ps, char ***spliter)
 {
 	int	j;
 
 	j = 0;
-	while (spliter && spliter[j])
+	while (*spliter && (*spliter)[j])
 	{
-		if (isnotnum(spliter[j]))
-			msg("Error\n", ps);
-		if (int_range(spliter[j]))
-			msg("Error\n", ps);
-		if (is_duplicate(ps->stack_a))
-			msg("Error\n", ps);
-		if (is_sorted(ps->stack_a))
+		if (isnotnum((*spliter)[j]) || int_range((*spliter)[j])
+			|| is_duplicate(ps->stack_a))
 		{
-			ft_clear(ps);
-			exit(1);
+			free_spliter(spliter);
+			msg("\033[1;31mError\033[0m\n", ps);
 		}
 		j++;
-		if (!spliter && (!spliter[j]))
-			free_spliter(spliter);
 	}
+	if (spliter)
+		free_spliter(spliter);
 }

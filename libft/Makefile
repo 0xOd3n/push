@@ -84,14 +84,12 @@ bonus: $(OBJ) $(OBJ_BON)
 	@ar rcs $(NAME) $(OBJ) $(OBJ_BON)
 
 %.o: %.c
-	gcc $(FLAGS) -c $<  $(INCLUDE)
+	@gcc $(FLAGS) -c $<  $(INCLUDE)
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BON)
-	@echo "clean"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "fclean"
 
 re: fclean all

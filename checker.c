@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:12:23 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/11 16:27:47 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:19:23 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	handler(t_push *ps, char *op)
 		|| !ft_strcmp(op, "rrr"))
 		stack_rotate(ps, op, 0);
 	else
-		msg("Error\n", ps);
+		msg("\e[1;31mError\e[0m\n", ps);
 }
 
 void	push_read(t_push *ps)
@@ -54,13 +54,13 @@ int	main(int ac, char **av)
 
 	ps = (t_push){0};
 	if (ac == 1)
-		msg("Error\n", &ps);
+		return (0);
 	fill_stack(&ps, &av[1]);
 	check_param(av, &ps);
 	push_read(&ps);
 	if (is_sorted(ps.stack_a))
-		ft_putstr_fd("OK\n", 1);
+		ft_putstr_fd("\033[1;32mOK\033[0m\n", 1);
 	else
-		ft_putstr_fd("KO\n", 1);
+		ft_putstr_fd("\033[1;31mKO\033[0m\n", 1);
 	ft_clear(&ps);
 }

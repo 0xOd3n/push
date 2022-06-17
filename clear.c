@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 22:06:45 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/08 22:10:07 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:52:20 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,17 @@ void	ft_clear(t_push *ps)
 	ps->stack_b = NULL;
 }
 
-void	free_spliter(char **spliter)
+void	free_spliter(char ***spliter)
 {
 	int	i;
 
 	i = 0;
-	while (spliter && spliter[i])
+	while (*spliter && (*spliter)[i])
 	{
-		free(spliter[i]);
+		free((*spliter)[i]);
 		i++;
 	}
-	free(spliter);
-	spliter = NULL;
+	if (*spliter)
+		free(*spliter);
+	(*spliter) = NULL;
 }

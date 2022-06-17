@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 16:09:07 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/11 18:56:09 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:24:29 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ void	stack_sort(t_push *ps)
 		case_of_10(ps);
 	else if (ps->size > 10)
 		case_of_100(ps);
-	free (ps->arr);
+	if (ps->arr)
+		free (ps->arr);
 }

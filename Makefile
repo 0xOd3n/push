@@ -6,11 +6,11 @@
 #    By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 18:46:31 by abbelhac          #+#    #+#              #
-#    Updated: 2021/06/11 19:52:38 by abbelhac         ###   ########.fr        #
+#    Updated: 2021/06/18 17:12:14 by abbelhac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a 
+NAME = push_swap.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 HEADER = push_swap.h
@@ -25,40 +25,44 @@ SRCS =	msg.c \
 		tools.c \
 		get_next_line.c \
 		get_next_line_utils.c
+PUSH = push_swap
+CHECKER = checker
 
 LIBFT = libft/libft.a
 OBJ = $(SRCS:.c=.o)
 
-all : $(NAME) run checker
+all : $(NAME) $(PUSH) $(CHECKER)
 
 $(NAME) : $(LIBFT) $(OBJ) $(HEADER)
-	cp libft/libft.a $(NAME)
-	ar -rcs $(NAME) $(OBJ)
+	@cp $(LIBFT) $(NAME)
+	@ar -rcs $(NAME) $(OBJ)
 
 $(LIBFT) :
-	make -C libft/
+	@make -C libft/
 
 %.o: %.c
-	gcc -c $(FLAGS) $<  $(HEADER)
+	@$(CC) -c $(FLAGS) $^ $(HEADER)
 
-run : $(NAME)
-	gcc $(FLAGS) push_swap.c $(NAME) -o push_swap
+$(PUSH) : $(NAME) push_swap.c
+	@$(CC) -g $(FLAGS) push_swap.c $(NAME) -o $(PUSH)
 
-checker : $(NAME)
-	gcc $(FLAGS) checker.c $(NAME) -o checker
+$(CHECKER) : $(NAME) checker.c
+	@$(CC) $(FLAGS) checker.c $(NAME) -o $(CHECKER)
 
 cleanlibft :
-	make clean -C libft/
+	@make clean -C libft/
 
 clean : cleanlibft
-	rm $(OBJ)
+	@rm $(OBJ)
+	@echo "clean"
 
 fcleanlibft :
-	make fclean -C libft/ 
+	@make fclean -C libft/ 
 
 fclean : fcleanlibft clean
-	rm $(NAME)
-	rm push_swap
-	rm checker
+	@rm $(NAME)
+	@rm push_swap
+	@rm checker
+	@echo "fclean"
 
 re : fclean all

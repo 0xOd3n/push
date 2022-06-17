@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 21:30:25 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/01 19:04:41 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:47:05 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	stack_arg_split(t_push *ps, t_stack **stack, char *av)
 			msg("Error\nmalloc in split arg", ps);
 		(*stack) = (*stack)->next;
 	}
-	free_spliter(spliter);
+	free_spliter(&spliter);
 }
 
 void	fill_stack(t_push *ps, char **av)

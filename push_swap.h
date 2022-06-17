@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 17:07:26 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/11 20:00:20 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:33:49 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 # include <fcntl.h>
-# include <sys/stat.h>
 # define BUFFER_SIZE 1
 
 typedef struct s_stack
@@ -37,7 +36,7 @@ typedef struct s_push
 
 void		msg(char *s, t_push *ps);
 int			isnotnum(char *s);
-void		split_check(t_push *ps, char **spliter);
+void		split_check(t_push *ps, char ***spliter);
 void		check_param(char **av, t_push *ps);
 void		stack_swap(t_push *ps, char *s, int bool);
 void		push(t_push *ps, char *s, int bool);
@@ -48,7 +47,7 @@ t_stack		*last_stack(t_stack *node, int r);
 int			stack_size(t_stack *stack);
 void		stack_sort(t_push *ps);
 void		init_stack_id(t_push *ps);
-void		free_spliter(char **spliter);
+void		free_spliter(char ***spliter);
 void		ft_clear(t_push *ps);
 void		fill_arr(t_push *ps);
 void		sort_arr(t_push *ps);

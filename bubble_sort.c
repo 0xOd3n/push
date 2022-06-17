@@ -6,7 +6,7 @@
 /*   By: abbelhac <abbelhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 21:19:08 by abbelhac          #+#    #+#             */
-/*   Updated: 2021/06/11 19:57:32 by abbelhac         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:42:52 by abbelhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	bubble_sort(t_push *ps)
 	{
 		exec = 0;
 		i = 0;
-		while (i < ps->size)
+		while ((i + 1) < ps->size)
 		{
 			if (tmp[i] > tmp[i + 1])
 			{
